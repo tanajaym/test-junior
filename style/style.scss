@@ -73,3 +73,142 @@ a, h3, h2, h1 {
 span{
   font-weight:500;
 }
+
+// ////////////////////
+///////////////////////
+/// 
+.container {
+  width: 100%;
+  background-color: $white;
+
+  .header {
+    background-color: $black;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+
+    margin: 0 0 $margin-section 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    &-text {
+      max-width: calc($container + $container-padding * 2);
+      padding-right: 20px;
+      margin-left: 20px;
+      flex: 1; /* Текст занимает оставшееся пространство */
+      padding-right: 20px;
+
+      p, h1{
+        color: $white;
+      }
+    }
+
+    &-img {
+      // flex: 1;
+      max-width: 50%;
+      justify-items: end;
+
+      img {
+        width: 364px;
+        height: 250px;
+        display: block;
+      }
+    }
+
+  }
+
+  main {
+    max-width: $container;
+    width: 100%;
+    margin: 0 auto;
+
+    section {
+      gap: 20px;
+      margin: 0 0 $margin-section 0;
+
+      .range-container {
+        .range {
+          display: flex;
+          gap: 20px;
+
+          &-from,
+          &-to {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          .range-input {
+            width: 151px;
+            height: $input-height;
+          }
+        }
+
+        .slider {
+          margin: 1rem 0;
+          height: 1.5px;
+          width: 323px;
+          background: #d9d9d9;
+          position: relative;
+
+          .progress {
+            height: 1.5px;
+            background: $primary;
+            position: absolute;
+          }
+
+          .sliders {
+            position: relative;
+
+            input[type="range"] {
+              top: -5px;
+              position: absolute;
+              width: 100%;
+              background: none;
+              -webkit-appearance: none;
+              pointer-events: none;
+
+              &::-webkit-slider-thumb {
+                height: 11px;
+                width: 11px;
+                background: $primary;
+                border-radius: 50%;
+                -webkit-appearance: none;
+                pointer-events: auto;
+              }
+            }
+          }
+        }
+      }
+
+    }
+  
+
+  .button{
+    width: 150px;
+    height: 38px;
+    outline: none;
+    border: none;
+    background: $primary;
+    color: $white;
+    box-shadow:#000000 5px 6px;
+    cursor: pointer;
+  }
+
+  .footer {
+    max-width: calc($container + $container-padding * 2);
+    width: 100%;
+    margin: 0 auto;
+
+
+
+    p {
+      color: $black;
+    }
+  }
+
+}
+
+}
