@@ -242,7 +242,35 @@ span{
         .radio {
           cursor: pointer;
           display: flex;
-          gap: 20px;
+          gap: 15px;
+          margin-top: 8px;
+
+          input[type="radio"]{
+            top: -5px;
+            position: absolute;
+            width: 100%;
+            background: none;
+            -webkit-appearance: none;
+            
+          }
+
+          .radio-custom{
+            pointer-events: none;
+            width: 13px;
+            height: 13px;
+            margin-top: 3.5px;
+            border-radius: 50%;
+            border: solid;
+            border-width:thin;
+            border-color: $black;
+            background-color: $white;
+            transition: background-color 0.3s ease, border-color 0.3s ease; 
+          }
+          input[type="radio"]:checked + .radio-custom {
+            background-color: $primary; 
+            border-color: $primary; 
+          }
+
         }
 
       }
