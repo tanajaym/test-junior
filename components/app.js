@@ -19,12 +19,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const currentYear = new Date().getFullYear();
   footerText.textContent = `© Ева Соболева, ${currentYear}`;
 
-  // Валидация диапазона
+  // Валидация range
   function validateRange() {
       let from = parseInt(fromInput.value) || 0;
       let to = parseInt(toInput.value) || 150;
 
-      // Ограничение значений от 0 до 150
       from = Math.max(0, Math.min(150, from));
       to = Math.max(0, Math.min(150, to));
 
@@ -37,10 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
       rangeMin.value = from;
       rangeMax.value = to;
 
-      return { from, to }; // Возвращаем значения from и to
+      return { from, to }; 
   }
 
-  // Вызов validateRange при изменении значений полей "От" и "До"
   fromInput.addEventListener('input', validateRange);
   toInput.addEventListener('input', validateRange);
 
@@ -65,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
       this.reportValidity();
   });
 
-  // Валидация возраста
+  // Валидация age
   ageInput.addEventListener('input', function () {
       if (!/^\d+$/.test(this.value)) {
           this.setCustomValidity("Введите только цифры.");
@@ -83,14 +81,13 @@ document.addEventListener('DOMContentLoaded', function () {
       }
   });
 
-  // Обработка отправки формы
   submitButton.addEventListener('click', function (event) {
       // Проверяем валидность всей формы
       if (!form.checkValidity()) {
           event.preventDefault();
           alert("Пожалуйста, заполните все поля корректно.");
       } else {
-          // Проверяем, что все поля заполнены корректно
+
           const isFormValid = (
               fromInput.value !== "" &&
               toInput.value !== "" &&
@@ -101,13 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
           );
 
           if (isFormValid) {
-              // Вызываем validateRange и получаем значения from и to
               const { from, to } = validateRange();
 
-              // Сохраняем данные и переходим на другую страницу
               const formData = {
-                  rangeFrom: from, // Используем значение from из validateRange
-                  rangeTo: to, // Используем значение to из validateRange
+                  rangeFrom: from, 
+                  rangeTo: to, 
                   selectedOption: bundlersSelect.value,
                   radioValue: document.querySelector('input[name="radio-container"]:checked')?.value || 'Не выбрано',
                   fullName: nameInput.value,

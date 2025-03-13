@@ -10,16 +10,14 @@
     <div class="result">
         <h2>Результаты формы</h2>
         <div class="result-container">
-            <div class="results"></div> <!-- Изменили id на class -->
+            <div class="results"></div> 
         </div>
     </div>
 
     <script>
-        // Чтение данных из localStorage
         const formData = JSON.parse(localStorage.getItem('formData'));
 
-        // Отображение данных на странице
-        const resultsContainer = document.querySelector('.results'); // Используем querySelector для поиска по классу
+        const resultsContainer = document.querySelector('.results'); 
         if (formData) {
             resultsContainer.innerHTML = `
                 <div class="result-item"><strong>Диапазон:</strong> ${formData.rangeFrom} - ${formData.rangeTo}</div>
