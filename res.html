@@ -1,12 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты формы</title>
+    <link href="./style/style.css" rel="stylesheet" />
 </head>
 <body>
-  <body>Hq</body>
-  
+    <div class="result">
+        <h2>Результаты формы</h2>
+        <div class="result-container">
+            <div class="results"></div> <!-- Изменили id на class -->
+        </div>
+    </div>
+
+    <script>
+        // Чтение данных из localStorage
+        const formData = JSON.parse(localStorage.getItem('formData'));
+
+        // Отображение данных на странице
+        const resultsContainer = document.querySelector('.results'); // Используем querySelector для поиска по классу
+        if (formData) {
+            resultsContainer.innerHTML = `
+                <div class="result-item"><strong>Диапазон:</strong> ${formData.rangeFrom} - ${formData.rangeTo}</div>
+                <div class="result-item"><strong>Выбранный select:</strong> ${formData.selectedOption}</div>
+                <div class="result-item"><strong>Выбранный radio:</strong> ${formData.radioValue}</div>
+                <div class="result-item"><strong>ФИО:</strong> ${formData.fullName}</div>
+                <div class="result-item"><strong>Возраст:</strong> ${formData.age}</div>
+                <div class="result-item"><strong>Обязательный checkbox:</strong> ${formData.checkbox1 ? 'Отмечен' : 'Не отмечен'}</div>
+                <div class="result-item"><strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? 'Отмечен' : 'Не отмечен'}</div>
+            `;
+        } else {
+            resultsContainer.innerHTML = '<p>Данные не найдены.</p>';
+        }
+    </script>
 </body>
 </html>
