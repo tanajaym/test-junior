@@ -183,6 +183,53 @@ span{
         }
       }
 
+      .select-container {
+        select {
+          cursor: pointer;
+          width: $input-width;
+          height: $input-height;
+        }
+      }
+
+      .input {
+        display: flex;
+        gap: 20px;
+
+        &-name,
+        &-age {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          input {
+            width: $input-width;
+            height: $input-height;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .checkbox-container {
+        display: flex;
+        gap: 20px;
+        input{
+          cursor: pointer;
+        }
+      }
+
+      .radio-container {
+        .radio {
+          cursor: pointer;
+          display: flex;
+          gap: 20px;
+        }
+
+      }
+    }
+    .section-radio-select{
+      display: flex;
+    }
+
     }
   
 
