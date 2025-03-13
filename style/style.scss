@@ -3,6 +3,8 @@
 $black: #000000;
 $white: #ffffff;
 $primary: #3a41ff;
+$primary-2: #3a40ff77;
+
 
 $font-family: "Source Code Pro", monospace;
 
@@ -302,6 +304,9 @@ span{
     color: $white;
     box-shadow:#000000 5px 6px;
     cursor: pointer;
+  }
+  .button:hover{
+    background: $primary-2;
   }
 
   .footer {

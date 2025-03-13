@@ -235,6 +235,9 @@ span {
   box-shadow: #000000 5px 6px;
   cursor: pointer;
 }
+.container .button:hover {
+  background: rgba(58, 64, 255, 0.4666666667);
+}
 .container .footer {
   max-width: 877px;
   width: 100%;
