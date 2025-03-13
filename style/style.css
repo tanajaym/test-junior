@@ -146,7 +146,41 @@ span {
   -webkit-appearance: none;
   pointer-events: auto;
 }
-.container main .button {
+.container main section .select-container select {
+  cursor: pointer;
+  width: 315px;
+  height: 35px;
+}
+.container main section .input {
+  display: flex;
+  gap: 20px;
+}
+.container main section .input-name, .container main section .input-age {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.container main section .input-name input, .container main section .input-age input {
+  width: 315px;
+  height: 35px;
+  cursor: pointer;
+}
+.container main section .checkbox-container {
+  display: flex;
+  gap: 20px;
+}
+.container main section .checkbox-container input {
+  cursor: pointer;
+}
+.container main section .radio-container .radio {
+  cursor: pointer;
+  display: flex;
+  gap: 20px;
+}
+.container main .section-radio-select {
+  display: flex;
+}
+.container .button {
   width: 150px;
   height: 38px;
   outline: none;
@@ -156,11 +190,11 @@ span {
   box-shadow: #000000 5px 6px;
   cursor: pointer;
 }
-.container main .footer {
+.container .footer {
   max-width: 877px;
   width: 100%;
   margin: 0 auto;
 }
-.container main .footer p {
+.container .footer p {
   color: #000000;
 }/*# sourceMappingURL=style.css.map */
