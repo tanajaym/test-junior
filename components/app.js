@@ -21,26 +21,41 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Валидация range
   function validateRange() {
-      let from = parseInt(fromInput.value) || 0;
-      let to = parseInt(toInput.value) || 150;
+    let from = parseInt(fromInput.value) || 0;
+    let to = parseInt(toInput.value) || 150;
 
-      from = Math.max(0, Math.min(150, from));
-      to = Math.max(0, Math.min(150, to));
+    from = Math.max(0, Math.min(150, from));
+    to = Math.max(0, Math.min(150, to));
 
-      if (from > to) {
-          [from, to] = [to, from];
-      }
+    if (from > to) {
+      [from, to] = [to, from];
+    }
+    //?
 
-      fromInput.value = from;
-      toInput.value = to;
-      rangeMin.value = from;
-      rangeMax.value = to;
+    fromInput.value = from;
+    toInput.value = to;
+    rangeMin.value = from;
+    rangeMax.value = to;
 
-      return { from, to }; 
+    return { from, to };
   }
 
-  fromInput.addEventListener('input', validateRange);
-  toInput.addEventListener('input', validateRange);
+
+  // Обновление полей ввода при перемещении ползунков
+  rangeMin.addEventListener('input', () => {
+    fromInput.value = rangeMin.value;
+    validateRange();
+  });
+
+  rangeMax.addEventListener('input', () => {
+    toInput.value = rangeMax.value;
+    validateRange();
+  });
+
+
+      fromInput.addEventListener('input', validateRange);
+      toInput.addEventListener('input', validateRange);
+
 
   // Валидация select
   bundlersSelect.addEventListener('change', function () {
