@@ -109,6 +109,7 @@ document.addEventListener('DOMContentLoaded', function () {
           } else {
               event.preventDefault();
               alert("Пожалуйста, заполните все поля корректно.");
+              //
           }
       }
   });
