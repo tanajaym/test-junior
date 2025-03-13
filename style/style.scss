@@ -74,9 +74,8 @@ span{
   font-weight:500;
 }
 
-// ////////////////////
-///////////////////////
-/// 
+
+
 .container {
   width: 100%;
   background-color: $white;
@@ -117,6 +116,26 @@ span{
       }
     }
 
+    @media(max-width: 730px){
+      // width: 100%;
+      display:flex;
+      flex-direction:column-reverse;
+      &-text {
+        padding: 2rem;
+      }
+
+      &-img {
+        flex: 1;
+        max-width: 100%;
+        justify-items: end;
+  
+        img {
+          width: 100%;
+          height: auto;
+
+        }
+      }
+    }
   }
 
   main {
@@ -229,8 +248,49 @@ span{
     .section-radio-select{
       display: flex;
     }
+  // ////////
+    @media (max-width: 730px) {
+      width: 100%;
+      flex-direction: column;
 
+      .section-radio-select{
+        display: block;
+        gap: 0;
+      }
     }
+    @media(max-width: 920px){
+    
+      margin: 0 20px 0 20px;
+    }
+  }
+
+  @media (max-width: 730px) {
+    section {
+      // flex-direction: column;
+
+      .range-container {
+        .range {
+          flex-direction: column;
+          gap: 10px;
+        }
+      }
+
+      .input {
+        flex-direction: column;
+      }
+
+      .checkbox-container {
+        flex-direction: column;
+      }
+
+      .radio-container {
+        .radio {
+          // flex-direction: column;
+        }
+      }
+    }
+
+  }
   
 
   .button{
@@ -255,7 +315,56 @@ span{
       color: $black;
     }
   }
-//
+
 }
 
 
+
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; 
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: $white;
+
+  h2 {
+    max-width: 600px;
+    margin: 2rem 0;
+    color: $primary;
+    text-align: center;
+  }
+
+  &-container {
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 5px 8px #000000;
+    background-color: #f9f9f9;
+    border-style:dashed;
+    border-color: $primary;
+  }
+
+  .result{
+    .result-item {
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.5;
+  
+      strong {
+        display: inline-block;
+        width: 150px;
+        font-weight: bold;
+      }
+    }
+  }
+
+  @media (max-width: 630px) {
+    &-container {
+      border: 2px dashed $primary; // Исправлено: добавлен размер границы
+      max-width: 300px;
+      padding: 15px;
+    }
+  }
+}
