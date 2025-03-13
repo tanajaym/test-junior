@@ -93,7 +93,7 @@
               Выберите select
             </span>
             <form>
-              <select name="bundlers" id="bundlers">
+              <select name="bundlers" class="bundlers" id="bundlers">
                 <option value="" disabled selected>Option</option>
                 <option value="Vite">Vite</option>
                 <option value="Webpack">Webpack</option>
@@ -154,14 +154,16 @@
         <section>
           <form class="checkbox-container">
             <div class="checkbox-1">
-              <label>
+              <label class="checkbox" checked>
+                <span class="checkmark"></span>
                 <input type="checkbox" name="languages" value="HTML" />
                 Обязательный checkbox
               </label>
             </div>
 
             <div class="checkbox-2">
-              <label>
+              <label class="checkbox">
+                <span class="checkmark"></span>
                 <input type="checkbox" name="languages" value="CSS" />
                 Необязательный checkbox
               </label>
