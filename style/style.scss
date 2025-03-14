@@ -339,23 +339,25 @@ span {
           // transition: 500ms;
 
           &::after{
-            content: "𐄂";
+            content: "⨯";
             color: $white;
             position: absolute;
-            // top: -5px;
-            // left: 2px;
-            width: 0px;
-            height: 0px;
-            font-size: 13px;
-            // transition: 500ms;
-            overflow: hidden;
+            top: 48%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 13px; 
+            height: 13px; 
+            font-size: 19px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             background-color: $primary;
+            opacity: 0; 
+            transition: opacity 0.1s ease;
           }
 
           &:checked::after{
-            width: 13px;
-            height: 13px;
-            // transition: 500ms;
+            opacity: 1;
           }
         }
       }

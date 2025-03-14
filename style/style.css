@@ -267,18 +267,24 @@ span {
   border: 1px solid #000000;
 }
 .container main section .checkbox-container .checkbox-input::after {
-  content: "𐄂";
+  content: "⨯";
   color: #ffffff;
   position: absolute;
-  width: 0px;
-  height: 0px;
-  font-size: 13px;
-  overflow: hidden;
-  background-color: #3a41ff;
-}
-.container main section .checkbox-container .checkbox-input:checked::after {
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 13px;
   height: 13px;
+  font-size: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #3a41ff;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+}
+.container main section .checkbox-container .checkbox-input:checked::after {
+  opacity: 1;
 }
 @media (max-width: 850px) {
   .container main {
