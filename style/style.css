@@ -147,7 +147,7 @@ span {
 }
 .container main section .range-container .slider .progress {
   height: 1.5px;
-  background: #3a41ff;
+  background: #025B58;
   position: absolute;
 }
 .container main section .range-container .slider .sliders {
@@ -164,7 +164,7 @@ span {
 .container main section .range-container .slider .sliders input[type=range]::-webkit-slider-thumb {
   height: 11px;
   width: 11px;
-  background: #3a41ff;
+  background: #025B58;
   border-radius: 50%;
   -webkit-appearance: none;
   pointer-events: auto;
@@ -221,8 +221,8 @@ span {
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .container main section .radio-container .radio input[type=radio]:checked + .radio-custom {
-  background-color: #3a41ff;
-  border-color: #3a41ff;
+  background-color: #025B58;
+  border-color: #025B58;
 }
 @media (max-width: 350px) {
   .container main section .radio-container .radio .radio-custom {
@@ -233,16 +233,52 @@ span {
 .container main .section-radio-select {
   display: flex;
 }
-.container main .section-radio-select form select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+.container main .section-radio-select .custom-select {
+  position: relative;
 }
-.container main .section-radio-select form .bundlers {
-  background-image: linear-gradient(45deg, transparent 50%, #3a41ff 50%), linear-gradient(135deg, #3a41ff 50%, transparent 50%), linear-gradient(to right, #ffffff, #ffffff);
-  background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), 100% 0;
-  background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
-  background-repeat: no-repeat;
+.container main .section-radio-select .custom-select select {
+  display: none;
+}
+.container main .section-radio-select .custom-select .select-selected {
+  background-color: #025B58;
+}
+.container main .section-radio-select .custom-select .select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #ffffff transparent transparent transparent;
+}
+.container main .section-radio-select .custom-select .select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+.container main .section-radio-select .custom-select .select-items div, .container main .section-radio-select .custom-select .select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.container main .section-radio-select .custom-select .select-items {
+  position: absolute;
+  background-color: #000000;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.container main .section-radio-select .custom-select .select-hide {
+  display: none;
+}
+.container main .section-radio-select .custom-select .select-items div:hover, .container main .section-radio-select .custom-select .same-as-selected {
+  background-color: #025B58;
 }
 .container main section .checkbox-container .checkbox-1,
 .container main section .checkbox-container .checkbox-2 {
@@ -279,7 +315,7 @@ span {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #3a41ff;
+  background-color: #025B58;
   opacity: 0;
   transition: opacity 0.1s ease;
 }
@@ -328,14 +364,14 @@ span {
   height: 38px;
   outline: none;
   border: none;
-  background: #3a41ff;
+  background: #025B58;
   color: #ffffff;
   box-shadow: #000000 5px 6px;
   cursor: pointer;
 }
 
 .button:hover {
-  background: rgba(58, 64, 255, 0.4666666667);
+  background: rgba(5, 133, 129, 0.8549019608);
 }
 
 .footer {
@@ -359,7 +395,7 @@ span {
 .result h2 {
   max-width: 600px;
   margin: 2rem 0;
-  color: #3a41ff;
+  color: #025B58;
   text-align: center;
 }
 .result-container {
@@ -369,7 +405,7 @@ span {
   box-shadow: 5px 8px #000000;
   background-color: #f9f9f9;
   border-style: dashed;
-  border-color: #3a41ff;
+  border-color: #025B58;
 }
 .result .result .result-item {
   margin-bottom: 10px;
@@ -383,7 +419,7 @@ span {
 }
 @media (max-width: 630px) {
   .result-container {
-    border: 2px dashed #3a41ff;
+    border: 2px dashed #025B58;
     max-width: 300px;
     padding: 15px;
   }

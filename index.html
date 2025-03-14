@@ -88,15 +88,32 @@
           <section class="section-radio-select">
             <div class="select-container">
               <span> Выберите select </span>
-              <form>
+              <div class="custom-select">
                 <select name="bundlers" class="bundlers" id="bundlers">
-                  <option value="" disabled selected>Option</option>
-                  <option value="Vite">Vite</option>
-                  <option value="Webpack">Webpack</option>
-                  <option value="Gulp">Gulp</option>
+                  <option value="0" disabled selected>Option</option>
+                  <option value="1">Vite</option>
+                  <option value="2">Webpack</option>
+                  <option value="3">Gulp</option>
                 </select>
-              </form>
+              </div>
             </div>
+
+            <!-- <div class="custom-select">
+              <div class="select-header">
+                <span class="selected-value">Select car:</span>
+                <span class="arrow">▼</span>
+              </div>
+              <ul class="select-options">
+                <li data-value="0">Select car:</li>
+                <li data-value="1">Vite</li>
+                <li data-value="2">Webpack</li>
+                <li data-value="3">Gulp</li>
+              
+              </ul>
+            </div> -->
+
+            <!-- //////
+            /// -->
 
             <div class="radio-container">
               <span>Выберите radio</span>
@@ -143,48 +160,6 @@
 
           <section>
             <form class="checkbox-container">
-              <!-- <div class="checkbox-new-1">
-                <div class="checkbox-new-checked">
-                  <span class="cross">𐄂</span>
-                </div>
-                <div class="checkbox-new-unchecked">
-                  <span class="blanck"></span>
-                </div>
-
-                <span class="checkbox-new-label">Обязательный checkbox</span>
-              </div>
-
-              <div class="checkbox-new-2">
-                <div class="checkbox-new-checked">
-                  <span class="cross">𐄂</span>
-                </div>
-                <div class="checkbox-new-unchecked">
-                  <span class="blanck"></span>
-                </div>
-
-                <span class="checkbox-new-label">Необязательный checkbox</span>
-              </div> -->
-
-              <!--//////
-                   variant for super castom 
-                //////////-->
-
-              <!-- <div class="checkbox-1">
-                <label class="checkbox" checked>
-                  <input type="checkbox" name="languages" value="HTML" />
-                  Обязательный checkbox
-                </label>
-              </div>
-
-              <div class="checkbox-2">
-                <label class="checkbox">
-                  <input type="checkbox" name="languages" value="CSS" />
-                  Необязательный checkbox
-                </label>
-              </div> -->
-              <!-- ///////////////
-              my varient
-            ///////////////// -->
               <div class="checkbox-1">
                 <input class="checkbox-input" type="checkbox" id="checkbox-1" name="languages" value="HTML" />
                 <label class="checkbox-label" checked> Обязательный checkbox </label>

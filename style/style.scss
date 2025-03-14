@@ -2,8 +2,8 @@
 
 $black: #000000;
 $white: #ffffff;
-$primary: #3a41ff;
-$primary-2: #3a40ff77;
+$primary: #025B58;
+$primary-2: #058581da;
 
 $font-family: 'Source Code Pro', monospace;
 
@@ -283,34 +283,69 @@ span {
         }
       }
     }
+    //////
+    //custom select
+    //////
     .section-radio-select {
       display: flex;
-
-      form {
-        select {
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
+      .custom-select{
+        position: relative;
+        select{
+          display: none;
         }
 
-        .bundlers {
-          background-image:
-            linear-gradient(45deg, transparent 50%, $primary 50%),
-            linear-gradient(135deg, $primary 50%, transparent 50%),
-            linear-gradient(to right, $white, $white);
-          background-position:
-            calc(100% - 20px) calc(1em + 2px),
-            calc(100% - 15px) calc(1em + 2px),
-            100% 0;
-          background-size:
-            5px 5px,
-            5px 5px,
-            2.5em 2.5em;
-          background-repeat: no-repeat;
+        .select-selected {
+          background-color: $primary;
         }
+        
+        .select-selected:after {
+          position: absolute;
+          content: "";
+          top: 14px;
+          right: 10px;
+          width: 0;
+          height: 0;
+          border: 6px solid transparent;
+          border-color: $white transparent transparent transparent;
+        }
+        
+        .select-selected.select-arrow-active:after {
+          border-color: transparent transparent #fff transparent;
+          top: 7px;
+        }
+        
+        .select-items div,.select-selected {
+          color: #ffffff;
+          padding: 8px 16px;
+          border: 1px solid transparent;
+          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          cursor: pointer;
+          user-select: none;
+        }
+        
+        .select-items {
+          position: absolute;
+          background-color: $black;
+          top: 100%;
+          left: 0;
+          right: 0;
+          z-index: 99;
+        }
+        
+        .select-hide {
+          display: none;
+        }
+        
+        .select-items div:hover, .same-as-selected {
+          background-color: $primary;
+        }
+
       }
-    }
 
+
+    }
+//////////
+///////
     section {
       .checkbox-container {
         .checkbox-1,
@@ -331,12 +366,8 @@ span {
           position: relative;
           width: 13px;
           height: 13px;
-
-
           background:$white;
-          // box-shadow: inset 0 0 5px rgb(0 0 0 / 0.2);
           border: 1px solid $black;
-          // transition: 500ms;
 
           &::after{
             content: "⨯";
