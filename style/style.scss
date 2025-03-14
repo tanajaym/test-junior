@@ -10,7 +10,8 @@ $font-family: 'Source Code Pro', monospace;
 $input-height: 35px;
 $input-width: 315px;
 
-$container: 847px;
+$container: 648px;
+$header-height:220px;
 $container-padding: 15px;
 $margin-section: 3rem;
 
@@ -87,21 +88,19 @@ span {
   .header {
     background-color: $black;
     display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    align-items: stretch; // Растягиваем элементы по высоте
+    justify-content: center; // Распределяем пространство между текстом и изображением
     width: 100%;
-
+    max-height: 220px;
     margin: 0 0 $margin-section 0;
     padding: 0;
     box-sizing: border-box;
     overflow: hidden;
 
     &-text {
-      max-width: calc($container + $container-padding * 2);
-      padding-right: 20px;
-      margin-left: 20px;
-      flex: 1; /* Текст занимает оставшееся пространство */
-      padding-right: 20px;
+      max-width: calc($container - 395px);
+      padding: 20px; // Отступы для текста
+      flex: 1; // Текст занимает оставшееся пространство
 
       p,
       h1 {
@@ -110,36 +109,57 @@ span {
     }
 
     &-img {
-      // flex: 1;
-      max-width: 50%;
-      justify-items: end;
+      flex: 0 0 0 30%; // Фиксированная ширина 30%
+      max-width: 30%; 
+      max-height: 220px;// Максимальная ширина 30%
+      display: grid;
+      align-items: stretch; // Растягиваем изображение по высоте
 
       img {
-        width: 364px;
-        height: 250px;
+        width: 100%; // Изображение занимает всю ширину контейнера
+        height: 100%; // Изображение занимает всю высоту контейнера
+        object-fit: cover; // Сохраняем пропорции изображения
         display: block;
       }
     }
 
-    @media (max-width: 730px) {
-      // width: 100%;
-      display: flex;
-      flex-direction: column-reverse;
+    @media (max-width: 600px) {
+      // flex-direction: column; // На маленьких экранах меняем направление на колонку
+
       &-text {
-        padding: 2rem;
+        padding: 20px; // Отступы для текста
       }
 
       &-img {
-        flex: 1;
-        max-width: 100%;
-        justify-items: end;
+        flex: 1; // Изображение занимает всю ширину
+        max-width: 100%; // Максимальная ширина 100%
+        height: 220px; // Минимальная высота 220px
 
         img {
-          width: 100%;
-          height: auto;
+          height: 220px; // Фиксированная высота для маленьких экранов
         }
       }
     }
+
+    // @media (max-width: 730px) {
+    //   // width: 100%;
+    //   display: flex;
+    //   flex-direction: column-reverse;
+    //   &-text {
+    //     padding: 2rem;
+    //   }
+
+    //   &-img {
+    //     flex: 1;
+    //     max-width: 100%;
+    //     justify-items: end;
+
+    //     img {
+    //       width: 100%;
+    //       height: auto;
+    //     }
+    //   }
+    // }
   }
 
   main {
@@ -285,7 +305,7 @@ span {
     }
     //////
     //custom select
-    //////
+
     .section-radio-select {
       display: flex;
       .custom-select{
@@ -293,34 +313,41 @@ span {
         select{
           display: none;
         }
-
+        
         .select-selected {
-          background-color: $primary;
+          background-color: $white;
+          border: 1px solid $black; // Добавляем рамку
+          // border-radius: 4px; // Опционально: скругление углов
+          padding: 8px 16px; // Отступы внутри элемента
+          color: $black; // Цвет текста
+          cursor: pointer;
         }
         
         .select-selected:after {
           position: absolute;
           content: "";
-          top: 14px;
+          top: 15px;
           right: 10px;
           width: 0;
           height: 0;
-          border: 6px solid transparent;
-          border-color: $white transparent transparent transparent;
+          border: 6px solid $black;
+          border-color: $primary transparent transparent transparent;
         }
         
         .select-selected.select-arrow-active:after {
-          border-color: transparent transparent #fff transparent;
+          border-color: transparent transparent $primary transparent;
           top: 7px;
         }
         
-        .select-items div,.select-selected {
-          color: #ffffff;
+        .select-items ,.select-selected {
+          color: $black;
           padding: 8px 16px;
           border: 1px solid transparent;
-          border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+          border-color: $black;
+          border-width:0,5px;
           cursor: pointer;
           user-select: none;
+          
         }
         
         .select-items {
@@ -330,7 +357,16 @@ span {
           left: 0;
           right: 0;
           z-index: 99;
+          padding: 0;
+
+           div{
+            color: $white;
+            width: 100%;
+            padding: 8px 16px;
+            cursor: pointer;
+          }
         }
+
         
         .select-hide {
           display: none;
@@ -344,8 +380,7 @@ span {
 
 
     }
-//////////
-///////
+
     section {
       .checkbox-container {
         .checkbox-1,
