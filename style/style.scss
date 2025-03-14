@@ -1,12 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
 
 $black: #000000;
 $white: #ffffff;
 $primary: #3a41ff;
 $primary-2: #3a40ff77;
 
-
-$font-family: "Source Code Pro", monospace;
+$font-family: 'Source Code Pro', monospace;
 
 $input-height: 35px;
 $input-width: 315px;
@@ -67,16 +66,17 @@ h2 {
   margin: 0 0 3rem 0;
 }
 
-a, h3, h2, h1 {
+a,
+h3,
+h2,
+h1 {
   text-decoration: none;
-  font-weight:bolder;
+  font-weight: bolder;
 }
 
-span{
-  font-weight:500;
+span {
+  font-weight: 500;
 }
-
-
 
 .container {
   width: 100%;
@@ -103,7 +103,8 @@ span{
       flex: 1; /* Текст занимает оставшееся пространство */
       padding-right: 20px;
 
-      p, h1{
+      p,
+      h1 {
         color: $white;
       }
     }
@@ -120,10 +121,10 @@ span{
       }
     }
 
-    @media(max-width: 730px){
+    @media (max-width: 730px) {
       // width: 100%;
-      display:flex;
-      flex-direction:column-reverse;
+      display: flex;
+      flex-direction: column-reverse;
       &-text {
         padding: 2rem;
       }
@@ -132,11 +133,10 @@ span{
         flex: 1;
         max-width: 100%;
         justify-items: end;
-  
+
         img {
           width: 100%;
           height: auto;
-
         }
       }
     }
@@ -185,7 +185,7 @@ span{
           .sliders {
             position: relative;
 
-            input[type="range"] {
+            input[type='range'] {
               top: -5px;
               position: absolute;
               width: 100%;
@@ -235,7 +235,7 @@ span{
       .checkbox-container {
         display: flex;
         gap: 20px;
-        input{
+        input {
           cursor: pointer;
         }
       }
@@ -247,111 +247,142 @@ span{
           gap: 15px;
           margin-top: 8px;
 
-          input[type="radio"]{
+          input[type='radio'] {
             top: -5px;
             position: absolute;
             width: 100%;
             background: none;
             -webkit-appearance: none;
-            
           }
 
-          .radio-custom{
+          .radio-custom {
             pointer-events: none;
             width: 13px;
             height: 13px;
             margin-top: 3.5px;
             border-radius: 50%;
             border: solid;
-            border-width:thin;
+            border-width: thin;
             border-color: $black;
             background-color: $white;
-            transition: background-color 0.3s ease, border-color 0.3s ease; 
+            transition:
+              background-color 0.3s ease,
+              border-color 0.3s ease;
           }
-          input[type="radio"]:checked + .radio-custom {
-            background-color: $primary; 
-            border-color: $primary; 
+          input[type='radio']:checked + .radio-custom {
+            background-color: $primary;
+            border-color: $primary;
           }
 
-          @media(max-width: 350px){
-            .radio-custom{
+          @media (max-width: 350px) {
+            .radio-custom {
               width: 10px;
               height: 10px;
             }
           }
-
         }
-
       }
     }
-    .section-radio-select{
-      display:flex;
+    .section-radio-select {
+      display: flex;
 
-      form{
-        select{          
+      form {
+        select {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
         }
 
-        .bundlers{
+        .bundlers {
           background-image:
-          linear-gradient(45deg, transparent 50%, $primary 50%),
-          linear-gradient(135deg, $primary 50%, transparent 50%),
-          linear-gradient(to right, $white,$white);
-        background-position:
-          calc(100% - 20px) calc(1em + 2px),
-          calc(100% - 15px) calc(1em + 2px),
-          100% 0;
-        background-size:
-          5px 5px,
-          5px 5px,
-          2.5em 2.5em;
-        background-repeat: no-repeat;
+            linear-gradient(45deg, transparent 50%, $primary 50%),
+            linear-gradient(135deg, $primary 50%, transparent 50%),
+            linear-gradient(to right, $white, $white);
+          background-position:
+            calc(100% - 20px) calc(1em + 2px),
+            calc(100% - 15px) calc(1em + 2px),
+            100% 0;
+          background-size:
+            5px 5px,
+            5px 5px,
+            2.5em 2.5em;
+          background-repeat: no-repeat;
         }
       }
-
     }
 
-    section{
-      .checkbox-container{
-        input{
-          accent-color: $primary;
+    section {
+      .checkbox-container {
+        .checkbox-1,
+        .checkbox-2 {
+          margin-top: 5px;
+          width: fit-content;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .checkbox-label{
+          padding-left: 5px;
+        }
+
+        .checkbox-input{
+          appearance: none;
+          position: relative;
+          width: 13px;
+          height: 13px;
+
+
+          background:$white;
+          // box-shadow: inset 0 0 5px rgb(0 0 0 / 0.2);
+          border: 1px solid $black;
+          // transition: 500ms;
+
+          &::after{
+            content: "𐄂";
+            color: $white;
+            position: absolute;
+            // top: -5px;
+            // left: 2px;
+            width: 0px;
+            height: 0px;
+            font-size: 13px;
+            // transition: 500ms;
+            overflow: hidden;
+            background-color: $primary;
+          }
+
+          &:checked::after{
+            width: 13px;
+            height: 13px;
+            // transition: 500ms;
+          }
         }
       }
-
     }
 
+    // ////////
 
-
-
-
-
-  // ////////
-
-    @media(max-width: 850px){
+    @media (max-width: 850px) {
       padding: $container-padding;
-  }
+    }
 
     @media (max-width: 700px) {
       width: 100%;
       flex-direction: column;
-      .section-radio-select{
+      .section-radio-select {
         display: block;
         gap: 0;
       }
-      section{
-
-        .input{
+      section {
+        .input {
           display: block;
         }
-
       }
     }
   }
 
   @media (max-width: 730px) {
-
     .container {
       padding: 0 $container-padding;
 
@@ -365,61 +396,50 @@ span{
               gap: 10px;
             }
           }
-    
+
           .input {
             flex-direction: column;
           }
-    
+
           .checkbox-container {
             // flex-direction: block;
             gap: 0;
           }
-    
         }
-
       }
-
-
     }
   }
-
 }
-  
 
-  .button{
-    width: 150px;
-    height: 38px;
-    outline: none;
-    border: none;
-    background: $primary;
-    color: $white;
-    box-shadow:#000000 5px 6px;
-    cursor: pointer;
+.button {
+  width: 150px;
+  height: 38px;
+  outline: none;
+  border: none;
+  background: $primary;
+  color: $white;
+  box-shadow: #000000 5px 6px;
+  cursor: pointer;
+}
+.button:hover {
+  background: $primary-2;
+}
+
+.footer {
+  max-width: calc($container + $container-padding * 2);
+  width: 100%;
+  margin: 0 auto;
+
+  p {
+    color: $black;
   }
-  .button:hover{
-    background: $primary-2;
-  }
-
-  .footer {
-    max-width: calc($container + $container-padding * 2);
-    width: 100%;
-    margin: 0 auto;
-
-
-
-    p {
-      color: $black;
-    }
-  }
-
-
-
+}
 
 .result {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; 
+  height: 100vh;
   padding: 20px;
   box-sizing: border-box;
   background-color: $white;
@@ -437,16 +457,16 @@ span{
     padding: 20px;
     box-shadow: 5px 8px #000000;
     background-color: #f9f9f9;
-    border-style:dashed;
+    border-style: dashed;
     border-color: $primary;
   }
 
-  .result{
+  .result {
     .result-item {
       margin-bottom: 10px;
       font-size: 16px;
       line-height: 1.5;
-  
+
       strong {
         display: inline-block;
         width: 150px;

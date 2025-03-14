@@ -2,6 +2,23 @@ function getRes() {
   window.location.href = "./res.html";
 }
 
+// function choiceHighlight(radio){
+//   var groupName = radio.name,
+//       group = document.getElementsByName(groupName);
+//   for (var i = 0, len = group.length; i < len; i++){
+//       group[i].nextSibling.className = group[i].checked ? 'chosen' : 'unchosen';
+//   }
+// }
+
+// var radios = document.getElementsByName('cases');
+
+// for (var i = 0, len = radios.length; i < len; i++){
+//   radios[i].addEventListener('change', function(){
+//       choiceHighlight(this);
+//   });
+// }
+
+
 document.addEventListener('DOMContentLoaded', function () {
   const fromInput = document.querySelector('input[placeholder="От 0"]');
   const toInput = document.querySelector('input[placeholder="До 100"]');

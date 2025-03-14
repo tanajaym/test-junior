@@ -1,64 +1,62 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <link href="./style/style.css" rel="stylesheet" />
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
+  <head>
+    <link href="./style/style.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
   <body>
-    <!--  //////////////////////
+    <body>
+      <!--  //////////////////////
       //HEADER
 ///////////////////////////////-->
 
-    <div class="container">
-      <header class="header">
-        <div class="header-text">
-          <h1>Заголовок h1</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </div>
-        <div class="header-img">
-          <img src="./assets/images/image.png" alt="forest img" />
-        </div>
-      </header>
-      <main>
-
-        <!--          ./////////////
+      <div class="container">
+        <header class="header">
+          <div class="header-text">
+            <h1>Заголовок h1</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </div>
+          <div class="header-img">
+            <img src="./assets/images/image.png" alt="forest img" />
+          </div>
+        </header>
+        <main>
+          <!--          ./////////////
           // SECTION-RANGE
 ///////////////////////////////////-->
 
-        <section>
-          <h2>Заголовок h2</h2>
-          <div class="range-container">
-            <span>Выберите диапазон</span>
-            <form class="range">
-              <div class="range-from">
-                <input
-                  type="number"
-                  placeholder="От 0"
-                  id="from"
-                  class="range-input"
-                  min="0"
-                  max="150"
-                />
-              </div>
-              <div class="range-to">
-                <input
-                  type="number"
-                  placeholder="До 100"
-                  id="to"
-                  class="range-input"
-                  min="0"
-                  max="150"
-                />
-              </div>
-            </form>
+          <section>
+            <h2>Заголовок h2</h2>
+            <div class="range-container">
+              <span>Выберите диапазон</span>
+              <form class="range">
+                <div class="range-from">
+                  <input
+                    type="number"
+                    placeholder="От 0"
+                    id="from"
+                    class="range-input"
+                    min="0"
+                    max="150"
+                  />
+                </div>
+                <div class="range-to">
+                  <input
+                    type="number"
+                    placeholder="До 100"
+                    id="to"
+                    class="range-input"
+                    min="0"
+                    max="150"
+                  />
+                </div>
+              </form>
               <div class="slider">
                 <div class="progress"></div>
                 <div class="sliders">
@@ -81,130 +79,158 @@
                   />
                 </div>
               </div>
-          </div>
-        </section>
-        <!-- //////////////
+            </div>
+          </section>
+          <!-- //////////////
         // SECTION-RADIO ---- SELECTOR
       /////////////////// -->
 
-        <section class="section-radio-select">
-          <div class="select-container">
-            <span>
-              Выберите select
-            </span>
-            <form>
-              <select name="bundlers" class="bundlers" id="bundlers">
-                <option value="" disabled selected>Option</option>
-                <option value="Vite">Vite</option>
-                <option value="Webpack">Webpack</option>
-                <option value="Gulp">Gulp</option>
-              </select>
-            </form>
-          </div>
+          <section class="section-radio-select">
+            <div class="select-container">
+              <span> Выберите select </span>
+              <form>
+                <select name="bundlers" class="bundlers" id="bundlers">
+                  <option value="" disabled selected>Option</option>
+                  <option value="Vite">Vite</option>
+                  <option value="Webpack">Webpack</option>
+                  <option value="Gulp">Gulp</option>
+                </select>
+              </form>
+            </div>
 
-          <div class="radio-container">
-            <span>Выберите radio</span>
-            <form class="radio">
-              <input
-                type="radio"
-                id="JavaScript"
-                name="radio-container"
-                value="JavaScript"
-               
-              />
-              <span class="radio-custom" ></span>
-              <label for="JavaScript">JavaScript</label><br />
+            <div class="radio-container">
+              <span>Выберите radio</span>
+              <form class="radio">
+                <input type="radio" id="JavaScript" name="radio-container" value="JavaScript" />
+                <span class="radio-custom"></span>
+                <label for="JavaScript">JavaScript</label><br />
 
-              <input checked type="radio" id="PHP" name="radio-container" value="PHP" />
-              <span class="radio-custom"></span>
-              <label for="PHP">PHP</label><br />
+                <input checked type="radio" id="PHP" name="radio-container" value="PHP" />
+                <span class="radio-custom"></span>
+                <label for="PHP">PHP</label><br />
 
-              <input type="radio" id="C#" name="radio-container" value="C#" />
-              <span class="radio-custom"></span>
-              <label for="C#">C#</label>
-            </form>
-          </div>
-        </section>
-        <!-- //////////////
+                <input type="radio" id="C#" name="radio-container" value="C#" />
+                <span class="radio-custom"></span>
+                <label for="C#">C#</label>
+              </form>
+            </div>
+          </section>
+          <!-- //////////////
         // SECTION-INPUT NAME
       /////////////////// -->
 
-        <section>
-          <div class="input">
-            <div class="input-name">
-              <span>Введите ФИО</span>
-              <form>
-                <input type="text" name="name" placeholder="Placeholder" />
-              </form>
-            </div>
+          <section>
+            <div class="input">
+              <div class="input-name">
+                <span>Введите ФИО</span>
+                <form>
+                  <input type="text" name="name" placeholder="Placeholder" />
+                </form>
+              </div>
 
-            <div class="input-age">
-              <span>Введите возраст в цифрах</span>
-              <form>
-                <input type="text" name="age" placeholder="Placeholder" />
-              </form>
+              <div class="input-age">
+                <span>Введите возраст в цифрах</span>
+                <form>
+                  <input type="text" name="age" placeholder="Placeholder" />
+                </form>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-                <!-- /////////////
+          <!-- /////////////
         // SECTION-CHECKBOX
       /////////////////// -->
 
-        <section>
-          <form class="checkbox-container">
-            <div class="checkbox-1">
-              <label class="checkbox" checked>
-                <!-- <span class="checkmark"></span> -->
-                <input type="checkbox" name="languages" value="HTML" />
-                Обязательный checkbox
-              </label>
-            </div>
+          <section>
+            <form class="checkbox-container">
+              <!-- <div class="checkbox-new-1">
+                <div class="checkbox-new-checked">
+                  <span class="cross">𐄂</span>
+                </div>
+                <div class="checkbox-new-unchecked">
+                  <span class="blanck"></span>
+                </div>
 
-            <div class="checkbox-2">
-              <label class="checkbox">
-                <!-- <span class="checkmark"></span> -->
-                <input type="checkbox" name="languages" value="CSS" />
-                Необязательный checkbox
-              </label>
-            </div>
-          </form>
-        </section>
+                <span class="checkbox-new-label">Обязательный checkbox</span>
+              </div>
 
-                <!-- //////////////
+              <div class="checkbox-new-2">
+                <div class="checkbox-new-checked">
+                  <span class="cross">𐄂</span>
+                </div>
+                <div class="checkbox-new-unchecked">
+                  <span class="blanck"></span>
+                </div>
+
+                <span class="checkbox-new-label">Необязательный checkbox</span>
+              </div> -->
+
+              <!--//////
+                   variant for super castom 
+                //////////-->
+
+              <!-- <div class="checkbox-1">
+                <label class="checkbox" checked>
+                  <input type="checkbox" name="languages" value="HTML" />
+                  Обязательный checkbox
+                </label>
+              </div>
+
+              <div class="checkbox-2">
+                <label class="checkbox">
+                  <input type="checkbox" name="languages" value="CSS" />
+                  Необязательный checkbox
+                </label>
+              </div> -->
+              <!-- ///////////////
+              my varient
+            ///////////////// -->
+              <div class="checkbox-1">
+                <input class="checkbox-input" type="checkbox" id="checkbox-1" name="languages" value="HTML" />
+                <label class="checkbox-label" checked> Обязательный checkbox </label>
+              </div>
+
+              <div class="checkbox-2">
+                <input class="checkbox-input" type="checkbox" id="checkbox-2" name="languages" value="CSS" />
+                <label class="checkbox-label">
+                  Необязательный checkbox
+                </label>
+              </div>
+            </form>
+          </section>
+
+          <!-- //////////////
         // SECTION-H3-TEXT
       /////////////////// -->
 
-        <section>
-          <h3>Заголовок h3</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </p>
-        </section>
+          <section>
+            <h3>Заголовок h3</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+          </section>
 
-                <!-- //////////////
+          <!-- //////////////
         // SECTION-SUBMIT-BUTTON
       /////////////////// -->
 
-        <section>
-          <button type="submit" class="button"  onClick="handleSubmit()" >Отправить</button>
-        </section>
-      </main>
+          <section>
+            <button type="submit" class="button" onClick="handleSubmit()">Отправить</button>
+          </section>
+        </main>
 
         <!-- //////////////
         // FOOTER
       /////////////////// -->
-      <footer class="footer">
-        <div class="footer-text">
-          <p>© Cоболева Ева, год рожденья-текущий год</p>
-        </div>
-      </footer>
-    </div>
-    <script src="./components/app.js">
-    </script>
+        <footer class="footer">
+          <div class="footer-text">
+            <p>© Cоболева Ева, год рожденья-текущий год</p>
+          </div>
+        </footer>
+      </div>
+      <script src="./components/app.js"></script>
+    </body>
   </body>
-</body>
 </html>
