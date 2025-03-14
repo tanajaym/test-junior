@@ -61,7 +61,8 @@ span {
 
 .container {
   width: 100%;
-  background-color: #ffffff;
+  max-width: 100%;
+  margin: 0 auto;
 }
 .container .header {
   background-color: #000000;
@@ -219,6 +220,12 @@ span {
   background-color: #3a41ff;
   border-color: #3a41ff;
 }
+@media (max-width: 350px) {
+  .container main section .radio-container .radio .radio-custom {
+    width: 10px;
+    height: 10px;
+  }
+}
 .container main .section-radio-select {
   display: flex;
 }
@@ -236,7 +243,12 @@ span {
 .container main section .checkbox-container input {
   accent-color: #3a41ff;
 }
-@media (max-width: 730px) {
+@media (max-width: 850px) {
+  .container main {
+    padding: 15px;
+  }
+}
+@media (max-width: 700px) {
   .container main {
     width: 100%;
     flex-direction: column;
@@ -245,22 +257,26 @@ span {
     display: block;
     gap: 0;
   }
-}
-@media (max-width: 920px) {
-  .container main {
-    margin: 0 20px 0 20px;
+  .container main section .input {
+    display: block;
   }
 }
 @media (max-width: 730px) {
-  .container section .range-container .range {
+  .container .container {
+    padding: 0 15px;
+  }
+  .container .container main {
+    padding: 0 15px;
+  }
+  .container .container main section .range-container .range {
     flex-direction: column;
     gap: 10px;
   }
-  .container section .input {
+  .container .container main section .input {
     flex-direction: column;
   }
-  .container section .checkbox-container {
-    flex-direction: column;
+  .container .container main section .checkbox-container {
+    gap: 0;
   }
 }
 
