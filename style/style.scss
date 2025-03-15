@@ -37,7 +37,13 @@ body {
   color: $black;
   background-color: $white;
   font-family: $font-family;
-  display: flex;
+  display: grid;
+  max-height: 100%;
+  grid-template-areas: 
+  "header header header"
+  ". main ."
+  ". footer ."
+  ;
   justify-content: center;
   flex-direction: column;
   width: 100%;
@@ -81,60 +87,103 @@ span {
 
 .container {
   width: 100%;
-  max-width: 100%;
+  max-width: $container; // Ограничиваем ширину контейнера
   margin: 0 auto;
+
+  // width: 100%;
+  // max-width: $container; // Ограничиваем ширину контейнера
+  // margin: 0 auto;
+  // padding: 0 $container-padding;
   // padding: 0 $container-padding;
 
   .header {
+    // grid-area: header;
+    // background-color: $black;
+    // width: 100vw; // Растягиваем на всю ширину экрана
+    // margin-left: calc(-50vw + 50%); // Центрируем header относительно контейнера
+    // display: grid;
+    // grid-template-columns: 1fr 30%; // Текст занимает 70%, изображение — 30%
+    // align-items: stretch; // Растягиваем элементы по высоте
+    // justify-items: stretch;
+    // min-height: 220px; // М
+
+    grid-area: header;
     background-color: $black;
-    display: flex;
+    width: 100vw; // Растягиваем на всю ширину экрана
+    margin-left: calc(-50vw + 50%); // Центрируем header относительно контейнера
+    display: grid;
+    grid-template-columns: 1fr 30%; // Текст занимает 70%, изображение — 30%
     align-items: stretch; // Растягиваем элементы по высоте
-    justify-content: center; // Распределяем пространство между текстом и изображением
-    width: 100%;
-    max-height: 220px;
-    margin: 0 0 $margin-section 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow: hidden;
+    justify-items: stretch;
+    min-height: 220px; // 
 
     &-text {
-      max-width: calc($container - 395px);
-      padding: 20px; // Отступы для текста
-      flex: 1; // Текст занимает оставшееся пространство
+      max-width: $container; // Ограничиваем ширину текста контейнером
+      padding: 20px;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-areas: 
+      ". text"
+      ". h1"
+      ;
+      flex-direction: column;
+      justify-content: center; // Выравниваем текст по центру
+      margin: 0 auto; // Центрируем текстовый блок внутри header
+      width: 100%; // Занимает всю доступную ширину
 
-      p,
+
       h1 {
+        grid-area: text;
+        color: $white;
+        // margin: 0; // Убираем отступы по умолчанию
+      }
+
+      p{
+        grid-area: h1;
         color: $white;
       }
     }
 
     &-img {
-      flex: 0 0 0 30%; // Фиксированная ширина 30%
-      max-width: 30%; 
-      max-height: 220px;// Максимальная ширина 30%
-      display: grid;
-      align-items: stretch; // Растягиваем изображение по высоте
+      // flex: 0 0 0 30%; // Фиксированная ширина 30%
+      // max-width: 30%; 
+      // max-height: 220px;// Максимальная ширина 30%
+      // // display: grid;
+      // grid-area: img;
+      // align-items: stretch; // Растягиваем изображение по высоте
+
+      width: 100%; // Изображение занимает всю ширину своей колонки
+      height: 100%; // Изображение занимает всю высоту блока
+      overflow: hidden; // Обрезаем изображение, если оно выходит за пределы
+      position: relative; // Для позиционирования изображения
 
       img {
-        width: 100%; // Изображение занимает всю ширину контейнера
-        height: 100%; // Изображение занимает всю высоту контейнера
+        // width: 100%; // Изображение занимает всю ширину контейнера
+        // height: 100%; // Изображение занимает всю высоту контейнера
+        // object-fit: cover; // Сохраняем пропорции изображения
+        // display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover; // Сохраняем пропорции изображения
         display: block;
+
       }
     }
 
     @media (max-width: 600px) {
       // flex-direction: column; // На маленьких экранах меняем направление на колонку
 
+      grid-template-columns: 1fr; // На маленьких экранах одна колонка
+      min-height: auto; // Сбрасываем минимальную выс
       &-text {
-        padding: 20px; // Отступы для текста
+        max-width: $container; // Текст занимает всю ширину
+        padding: 20px;
       }
 
       &-img {
-        flex: 1; // Изображение занимает всю ширину
-        max-width: 100%; // Максимальная ширина 100%
-        height: 220px; // Минимальная высота 220px
-
+        flex: 1;
+        height: 220px; // Фиксированная высота изображения
+        width: 100%; // Изображение занимает всю ширину
         img {
           height: 220px; // Фиксированная высота для маленьких экранов
         }
@@ -163,9 +212,11 @@ span {
   }
 
   main {
+    grid-area: menu;
     max-width: $container;
     width: 100%;
     margin: 0 auto;
+    background-color: aqua;
 
     section {
       gap: 20px;
@@ -494,6 +545,8 @@ span {
 }
 
 .footer {
+  grid-area: footer;
+  background-color: #025B58;
   max-width: calc($container + $container-padding * 2);
   width: 100%;
   margin: 0 auto;
