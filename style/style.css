@@ -52,15 +52,30 @@ body {
   max-width: 648px;
   margin: 0 auto;
 }
+@media (max-width: 600px) {
+  .container {
+    display: block;
+  }
+}
+@media (max-width: 600px) {
+  .container .header-text {
+    padding: 0;
+  }
+}
 
 .header {
   min-height: 220px;
-  min-width: 100%;
-  grid-area: header;
+  min-width: 70%;
 }
 .header h1,
 .header p {
   color: #ffffff;
+}
+@media (max-width: 600px) {
+  .header h1,
+  .header p {
+    padding: 14px;
+  }
 }
 .header-background {
   position: absolute;
@@ -74,9 +89,30 @@ body {
   overflow: hidden;
   min-height: 220px;
 }
+@media (max-width: 600px) {
+  .header-background {
+    position: relative;
+    flex-direction: column;
+    height: auto;
+  }
+}
+.header-text {
+  max-width: 70%;
+}
+@media (max-width: 600px) {
+  .header-text {
+    max-width: 100%;
+    background-color: #000000;
+  }
+}
 .header-img {
   width: 30%;
   height: 220px;
+}
+@media (max-width: 600px) {
+  .header-img {
+    width: 100%;
+  }
 }
 .header-img img {
   width: 100%;
@@ -84,13 +120,15 @@ body {
   -o-object-fit: cover;
      object-fit: cover;
 }
+.header .container {
+  padding: 0;
+}
 
 main {
   grid-area: menu;
   max-width: 648px;
   width: 100%;
   margin: 0 auto;
-  background-color: aqua;
 }
 main section {
   gap: 20px;
@@ -108,6 +146,19 @@ main section .range-container .range-from, main section .range-container .range-
 main section .range-container .range .range-input {
   width: 151px;
   height: 35px;
+}
+@media (max-width: 600px) {
+  main section .range-container .range {
+    max-width: 100%;
+    justify-content: space-evenly;
+  }
+}
+@media (max-width: 360px) {
+  main section .range-container .range {
+    max-width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 }
 main section .range-container .slider {
   margin: 1rem 0;
@@ -140,6 +191,11 @@ main section .range-container .slider .sliders input[type=range]::-webkit-slider
   -webkit-appearance: none;
   pointer-events: auto;
 }
+@media (max-width: 600px) {
+  main section .range-container .slider {
+    width: 100%;
+  }
+}
 main section .select-container select {
   cursor: pointer;
   width: 315px;
@@ -154,10 +210,29 @@ main section .input-name, main section .input-age {
   flex-direction: column;
   gap: 10px;
 }
-main section .input-name input, main section .input-age input {
+main section .input-name .form-name, main section .input-age .form-name {
+  cursor: pointer;
+}
+main section .input-name .form-name input, main section .input-age .form-name input {
   width: 315px;
   height: 35px;
+}
+@media (max-width: 600px) {
+  main section .input-name .form-name input, main section .input-age .form-name input {
+    width: 100%;
+  }
+}
+main section .input-name .form-age, main section .input-age .form-age {
   cursor: pointer;
+}
+main section .input-name .form-age input, main section .input-age .form-age input {
+  width: 102px;
+  height: 35px;
+}
+@media (max-width: 600px) {
+  main section .input-name .form-age input, main section .input-age .form-age input {
+    width: 100%;
+  }
 }
 main section .checkbox-container {
   display: flex;
@@ -210,13 +285,6 @@ main .section-radio-select .custom-select {
 main .section-radio-select .custom-select select {
   display: none;
 }
-main .section-radio-select .custom-select .select-selected {
-  background-color: #ffffff;
-  border: 1px solid #000000;
-  padding: 8px 16px;
-  color: #000000;
-  cursor: pointer;
-}
 main .section-radio-select .custom-select .select-selected:after {
   position: absolute;
   content: "";
@@ -233,15 +301,28 @@ main .section-radio-select .custom-select .select-selected.select-arrow-active:a
 }
 main .section-radio-select .custom-select .select-items,
 main .section-radio-select .custom-select .select-selected {
+  width: 315px;
+  background-color: #ffffff;
   color: #000000;
   padding: 8px 16px;
-  border: 1px solid transparent;
-  border-color: #000000;
-  border-width: 0, 5px;
+  border: 1px solid #000000;
+  border-width: 0, 4px;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+@media (max-width: 600px) {
+  main .section-radio-select .custom-select .select-items,
+  main .section-radio-select .custom-select .select-selected {
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  main .section-radio-select .custom-select .select-items,
+  main .section-radio-select .custom-select .select-selected {
+    width: auto;
+  }
 }
 main .section-radio-select .custom-select .select-items {
   position: absolute;
@@ -312,38 +393,24 @@ main section .checkbox-container .checkbox-input:checked::after {
     padding: 15px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 650px) {
   main {
     width: 100%;
     flex-direction: column;
   }
   main .section-radio-select {
-    display: block;
+    display: flex;
+    flex-direction: column;
     gap: 0;
+  }
+  main .section-radio-select .custom-select {
+    max-width: 54%;
   }
   main section .input {
     display: block;
   }
 }
 
-@media (max-width: 730px) {
-  .container {
-    padding: 0 15px;
-  }
-  .container main {
-    padding: 0 15px;
-  }
-  .container main section .range-container .range {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .container main section .input {
-    flex-direction: column;
-  }
-  .container main section .checkbox-container {
-    gap: 0;
-  }
-}
 .button {
   width: 150px;
   height: 38px;

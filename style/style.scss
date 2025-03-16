@@ -60,32 +60,38 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-family: $font-family;
-  // display: grid;
   max-height: 100%;
-  // grid-template-areas:
-  //   // 'header header header'
-  //   '. main .'
-  //   '. footer .';
-  // justify-content: center;
-  // flex-direction: column;
   width: 100%;
 }
-
+//image
 .container {
   width: 100%;
   max-width: $container; // Ограничиваем ширину контейнера
   margin: 0 auto;
-  // padding: 0 $container-padding;
+  @media(max-width:600px){
+    display: block;
+  }
+
+  .header-text{
+    @media(max-width:600px){
+      padding: 0;
+    }
+  }
 }
 
 .header {
   // width: 100vw; // Растягиваем на всю ширину экрана
   min-height: 220px; //
-  min-width: 100%;
-  grid-area: header;
+  min-width: 70%;
+  // min-width: 100%;
+  // grid-area: header;
+  
   h1,
   p {
     color: $white;
+    @media(max-width: 600px){
+      padding: 14px;
+    }
   }
   &-background {
     position: absolute;
@@ -98,16 +104,41 @@ body {
     justify-content: space-between;
     overflow: hidden;
     min-height: 220px;
+
+    @media(max-width: 600px) {
+      position: relative;
+      flex-direction: column; // Меняем направление flex на колонку
+      height: auto; // Высота автоматически подстраивается под содержимое
+    }
   }
+
+  &-text{
+    max-width: 70%;
+    @media(max-width: 600px) {
+      max-width: 100%;
+      background-color: #000000;
+    }
+  }
+
   &-img {
     width: 30%;
     height: 220px;
+    @media(max-width: 600px) {
+      width: 100%; // Изображение занимает всю ширину// Высота автоматически подстраивается под содержимое
+    }
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
+  }
+  
+  // @media(max-width: 600px){
+  //   background-color: $black
+  // }
+  .container{
+    padding: 0;
   }
 }
 
@@ -116,7 +147,6 @@ main {
   max-width: $container;
   width: 100%;
   margin: 0 auto;
-  background-color: aqua;
 
   section {
     gap: 20px;
@@ -138,6 +168,17 @@ main {
           width: 151px;
           height: $input-height;
         }
+        @media(max-width:600px){
+            max-width: 100%;
+            justify-content: space-evenly;
+        }
+        @media(max-width:360px){
+          max-width: 100%;
+          gap: 20px;;
+          flex-wrap: wrap;
+          // justify-content: space-between;
+      }
+
       }
 
       .slider {
@@ -174,6 +215,9 @@ main {
             }
           }
         }
+        @media(max-width:600px){
+          width: 100%;
+        }
       }
     }
 
@@ -194,13 +238,32 @@ main {
         display: flex;
         flex-direction: column;
         gap: 10px;
-
-        input {
-          width: $input-width;
-          height: $input-height;
+        
+        
+        .form-name{
           cursor: pointer;
+          input{
+            width: $input-width;
+            height: $input-height;
+            @media(max-width:600px){
+              width: 100%;
+            }
+          }
+        }
+
+        .form-age {
+          cursor: pointer;
+          input{
+            width: calc($input-width - 213px);
+            height: $input-height;
+
+            @media(max-width:600px){
+              width: 100%;
+            }
+          }
         }
       }
+
     }
 
     .checkbox-container {
@@ -265,15 +328,6 @@ main {
         display: none;
       }
 
-      .select-selected {
-        background-color: $white;
-        border: 1px solid $black; // Добавляем рамку
-        // border-radius: 4px; // Опционально: скругление углов
-        padding: 8px 16px; // Отступы внутри элемента
-        color: $black; // Цвет текста
-        cursor: pointer;
-      }
-
       .select-selected:after {
         position: absolute;
         content: '';
@@ -283,6 +337,9 @@ main {
         height: 0;
         border: 6px solid $black;
         border-color: $primary transparent transparent transparent;
+        // @media(max-width: 730px){
+        //   position: absolute;
+        // }
       }
 
       .select-selected.select-arrow-active:after {
@@ -292,13 +349,24 @@ main {
 
       .select-items,
       .select-selected {
+        width: $input-width;
+        background-color: $white;
         color: $black;
         padding: 8px 16px;
-        border: 1px solid transparent;
-        border-color: $black;
-        border-width: 0, 5px;
+        border: 1px solid $black;
+        // border-color: $black;
+        border-width: 0, 4px;
         cursor: pointer;
         user-select: none;
+
+        @media(max-width:600px){
+          width: 100%;
+        }
+        @media(max-width: 650px){
+
+            width: auto;
+    
+        }
       }
 
       .select-items {
@@ -383,12 +451,18 @@ main {
     padding: $container-padding;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 650px) {
     width: 100%;
     flex-direction: column;
     .section-radio-select {
-      display: block;
+      display: flex;
+      flex-direction: column;
       gap: 0;
+
+      .custom-select{
+        max-width: 54%;  
+      }
+      
     }
     section {
       .input {
@@ -398,33 +472,34 @@ main {
   }
 }
 
-@media (max-width: 730px) {
-  .container {
-    padding: 0 $container-padding;
+// @media (max-width: 730px) {
+//   .container {
+//     padding: 0 $container-padding; 
+//    main {
+//       padding: 0 $container-padding;
 
-    main {
-      padding: 0 $container-padding;
-
-      section {
-        .range-container {
-          .range {
-            flex-direction: column;
-            gap: 10px;
-          }
-        }
-
-        .input {
-          flex-direction: column;
-        }
-
-        .checkbox-container {
-          // flex-direction: block;
-          gap: 0;
-        }
-      }
-    }
-  }
-}
+//       section {
+//         .range-container {
+//           .range {
+//             flex-direction: column;
+//             gap: 10px;
+//           }
+//         }
+//         .input {
+//           flex-direction: column;
+//         }
+        
+//         .checkbox-container {
+//           // flex-direction: block;
+//           gap: 0;
+//         }
+//       }
+//     }
+//   }
+  
+// }
+//////////
+/// ///////
 
 .button {
   width: 150px;
