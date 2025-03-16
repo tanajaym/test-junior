@@ -264,7 +264,7 @@ main section .radio-container .radio .radio-custom {
   border-width: thin;
   border-color: #000000;
   background-color: #ffffff;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
 }
 main section .radio-container .radio input[type=radio]:checked + .radio-custom {
   background-color: #025b58;
@@ -428,8 +428,7 @@ main section .checkbox-container .checkbox-input:checked::after {
 
 .footer {
   grid-area: footer;
-  background-color: #025b58;
-  max-width: 678px;
+  max-width: 633px;
   width: 100%;
   margin: 0 auto;
 }
@@ -474,7 +473,6 @@ main section .checkbox-container .checkbox-input:checked::after {
 @media (max-width: 630px) {
   .result-container {
     border: 2px dashed #025b58;
-    max-width: 300px;
     padding: 15px;
   }
 }/*# sourceMappingURL=style.css.map */

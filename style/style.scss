@@ -300,8 +300,8 @@ main {
           border-color: $black;
           background-color: $white;
           transition:
-            background-color 0.3s ease,
-            border-color 0.3s ease;
+            background-color 0.1s ease,
+            border-color 0.1s ease;
         }
         input[type='radio']:checked + .radio-custom {
           background-color: $primary;
@@ -337,9 +337,6 @@ main {
         height: 0;
         border: 6px solid $black;
         border-color: $primary transparent transparent transparent;
-        // @media(max-width: 730px){
-        //   position: absolute;
-        // }
       }
 
       .select-selected.select-arrow-active:after {
@@ -445,6 +442,11 @@ main {
     }
   }
 
+  // .section-h3-p{
+  //   border-bottom: solid $primary;
+  //   padding: 0 0 1rem 0;
+  // }
+
   // ////////
 
   @media (max-width: 850px) {
@@ -470,36 +472,9 @@ main {
       }
     }
   }
+
 }
 
-// @media (max-width: 730px) {
-//   .container {
-//     padding: 0 $container-padding; 
-//    main {
-//       padding: 0 $container-padding;
-
-//       section {
-//         .range-container {
-//           .range {
-//             flex-direction: column;
-//             gap: 10px;
-//           }
-//         }
-//         .input {
-//           flex-direction: column;
-//         }
-        
-//         .checkbox-container {
-//           // flex-direction: block;
-//           gap: 0;
-//         }
-//       }
-//     }
-//   }
-  
-// }
-//////////
-/// ///////
 
 .button {
   width: 150px;
@@ -517,8 +492,7 @@ main {
 
 .footer {
   grid-area: footer;
-  background-color: #025b58;
-  max-width: calc($container + $container-padding * 2);
+  max-width: calc($container - $container-padding );
   width: 100%;
   margin: 0 auto;
 
@@ -569,8 +543,7 @@ main {
 
   @media (max-width: 630px) {
     &-container {
-      border: 2px dashed $primary; // Исправлено: добавлен размер границы
-      max-width: 300px;
+      border: 2px dashed $primary; 
       padding: 15px;
     }
   }
