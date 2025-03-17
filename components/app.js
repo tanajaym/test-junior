@@ -1,59 +1,65 @@
-function getRes() {
-  window.location.href = "./res.html";
-}
+// function getRes() {
+//   window.location.href = "./res.html";
+// }
 
+    //////
+    //result popup
+    //////
+
+    
+    
     //////
     //custom select
     //////
-
-function initializeCustomSelect() {
-
-    const customSelects = document.getElementsByClassName("custom-select");
-  
-    for (let i = 0; i < customSelects.length; i++) {
-      const selectElement = customSelects[i].getElementsByTagName("select")[0];
-      const optionsCount = selectElement.length;
-  
-      const selectedDiv = document.createElement("DIV");
-      selectedDiv.setAttribute("class", "select-selected");
-      selectedDiv.innerHTML = selectElement.options[selectElement.selectedIndex].innerHTML;
-      customSelects[i].appendChild(selectedDiv);
-  
-      const optionsDiv = document.createElement("DIV");
-      optionsDiv.setAttribute("class", "select-items select-hide");
-  
-      // Добавляем опции в список
-      for (let j = 1; j < optionsCount; j++) {
-        const optionDiv = document.createElement("DIV");
+    
+    function initializeCustomSelect() {
+      
+      const customSelects = document.getElementsByClassName("custom-select");
+      
+      for (let i = 0; i < customSelects.length; i++) {
+        const selectElement = customSelects[i].getElementsByTagName("select")[0];
+        const optionsCount = selectElement.length;
+        
+        const selectedDiv = document.createElement("DIV");
+        selectedDiv.setAttribute("class", "select-selected");
+        selectedDiv.innerHTML = selectElement.options[selectElement.selectedIndex].innerHTML;
+        customSelects[i].appendChild(selectedDiv);
+        
+        const optionsDiv = document.createElement("DIV");
+        optionsDiv.setAttribute("class", "select-items select-hide");
+        
+        // Добавляем опции в список
+        for (let j = 1; j < optionsCount; j++) {
+          const optionDiv = document.createElement("DIV");
         optionDiv.innerHTML = selectElement.options[j].innerHTML;
         
         optionDiv.addEventListener("click", function (e) {
           const select = this.parentNode.parentNode.getElementsByTagName("select")[0];
           const selectedHeader = this.parentNode.previousSibling;
           const selectedOptions = this.parentNode.getElementsByClassName("same-as-selected");
-  
+          
           for (let k = 0; k < select.length; k++) {
             if (select.options[k].innerHTML === this.innerHTML) {
               select.selectedIndex = k;
               selectedHeader.innerHTML = this.innerHTML;
-  
+              
               for (let m = 0; m < selectedOptions.length; m++) {
                 selectedOptions[m].removeAttribute("class");
               }
-
+              
               this.setAttribute("class", "same-as-selected");
               break;
             }
           }
-  
+          
           selectedHeader.click();
         });
         optionsDiv.appendChild(optionDiv);
       }
-  
+      
       // Добавляем список опций в DOM
       customSelects[i].appendChild(optionsDiv);
-  
+      
       selectedDiv.addEventListener("click", function (e) {
         e.stopPropagation();
         closeAllSelect(this);
@@ -61,12 +67,12 @@ function initializeCustomSelect() {
         this.classList.toggle("select-arrow-active");
       });
     }
-
+    
     function closeAllSelect(currentElement) {
       const allSelectItems = document.getElementsByClassName("select-items");
       const allSelectedHeaders = document.getElementsByClassName("select-selected");
       const exceptions = [];
-  
+      
       for (let i = 0; i < allSelectedHeaders.length; i++) {
         if (currentElement === allSelectedHeaders[i]) {
           exceptions.push(i);
@@ -74,7 +80,7 @@ function initializeCustomSelect() {
           allSelectedHeaders[i].classList.remove("select-arrow-active");
         }
       }
-  
+      
       for (let i = 0; i < allSelectItems.length; i++) {
         if (!exceptions.includes(i)) {
           allSelectItems[i].classList.add("select-hide");
@@ -82,22 +88,28 @@ function initializeCustomSelect() {
       }
     }
   //закрытие списка
-    document.addEventListener("click", closeAllSelect);
-  }
-  
-    //////
-    //custom select
-    //////
+  document.addEventListener("click", closeAllSelect);
+}
 
+//////
+//custom select
+//////
+
+function openPopup() {
+  const formData = JSON.parse(localStorage.getItem('formData'));
+
+  
+  
+}
 document.addEventListener('DOMContentLoaded', function () {
-
-    initializeCustomSelect();
   
-    const fromInput = document.querySelector('input[placeholder="От 0"]');
-    const toInput = document.querySelector('input[placeholder="До 100"]');
-    const rangeMin = document.querySelector('.range-min');
-    const rangeMax = document.querySelector('.range-max');
-    const bundlersSelect = document.querySelector('select[name="bundlers"]');
+  initializeCustomSelect();
+  
+  const fromInput = document.querySelector('input[placeholder="От 0"]');
+  const toInput = document.querySelector('input[placeholder="До 100"]');
+  const rangeMin = document.querySelector('.range-min');
+  const rangeMax = document.querySelector('.range-max');
+  const bundlersSelect = document.querySelector('select[name="bundlers"]');
     const nameInput = document.querySelector('input[name="name"]');
     const ageInput = document.querySelector('input[name="age"]');
     const checkboxes = document.querySelectorAll('input[type="checkbox"]');
@@ -125,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function () {
       toInput.value = to;
       rangeMin.value = from;
       rangeMax.value = to;
-  
+      
       return { from, to };
     }
   
@@ -142,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
     fromInput.addEventListener('input', validateRange);
     toInput.addEventListener('input', validateRange);
-  
+    
     // Валидация select
     bundlersSelect.addEventListener('change', function () {
       if (this.value === "") {
@@ -181,7 +193,7 @@ document.addEventListener('DOMContentLoaded', function () {
         alert("Пожалуйста, отметьте обязательный checkbox.");
       }
     });
-  
+    
     submitButton.addEventListener('click', function (event) {
       // Проверяем валидность всей формы
       if (!form.checkValidity()) {
@@ -195,28 +207,70 @@ document.addEventListener('DOMContentLoaded', function () {
           nameInput.value !== "" &&
           ageInput.value !== "" &&
           checkboxes[0].checked
-        );
-  
-        if (isFormValid) {
-          const { from, to } = validateRange();
-  
-          const formData = {
-            rangeFrom: from,
-            rangeTo: to,
-            selectedOption: bundlersSelect.value,
-            radioValue: document.querySelector('input[name="radio-container"]:checked')?.value || 'Не выбрано',
-            fullName: nameInput.value,
-            age: ageInput.value,
-            checkbox1: checkboxes[0].checked,
-            checkbox2: checkboxes[1].checked,
-          };
-  
-          localStorage.setItem('formData', JSON.stringify(formData));
-          getRes();
-        } else {
-          event.preventDefault();
-          alert("Пожалуйста, заполните все поля корректно");
-        }
+          );
+          
+          if (isFormValid) {
+            const { from, to } = validateRange();
+            
+            const formData = {
+              rangeFrom: from,
+              rangeTo: to,
+              selectedOption: bundlersSelect.value,
+              radioValue: document.querySelector('input[name="radio-container"]:checked')?.value || 'Не выбрано',
+              fullName: nameInput.value,
+              age: ageInput.value,
+              checkbox1: checkboxes[0].checked,
+              checkbox2: checkboxes[1].checked,
+            };
+            
+            localStorage.setItem('formData', JSON.stringify(formData));
+            openPopup();
+          } else {
+            event.preventDefault();
+            alert("Пожалуйста, заполните все поля корректно");
+          }
+          function setActivePopup() {
+            var container = document.querySelector('.container'),
+                result = document.querySelector('.result');
+                
+            if (!container || !result) {
+                console.error('Элементы .container или .result не найдены в DOM.');
+                return;
+              }
+          
+            var checkHidePopup = function (event) {
+                if (!result.contains(event.target)) {
+                    container.classList.remove('active');
+                    document.removeEventListener('click', checkHidePopup, false);
+                }
+            };
+          
+            var button = document.querySelector('button');
+            if (button) {
+                button.addEventListener('click', function (event) {
+                    container.classList.add('active');
+                    document.addEventListener('click', checkHidePopup, false);
+                });
+              } else {
+                console.error('Кнопка не найдена в DOM.');
+              }
+            }
+            const resultsContainer = document.querySelector('.results'); 
+            if (formData) {
+                resultsContainer.innerHTML = `
+                    <div class="result-item"><strong>Диапазон:</strong> ${formData.rangeFrom} - ${formData.rangeTo}</div>
+                    <div class="result-item"><strong>Выбранный select:</strong> ${formData.selectedOption}</div>
+                    <div class="result-item"><strong>Выбранный radio:</strong> ${formData.radioValue}</div>
+                    <div class="result-item"><strong>ФИО:</strong> ${formData.fullName}</div>
+                    <div class="result-item"><strong>Возраст:</strong> ${formData.age}</div>
+                    <div class="result-item"><strong>Обязательный checkbox:</strong> ${formData.checkbox1 ? 'Отмечен' : 'Не отмечен'}</div>
+                    <div class="result-item"><strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? 'Отмечен' : 'Не отмечен'}</div>
+                `;
+          
+                setActivePopup();
+            } else {
+                resultsContainer.innerHTML = '<p>Данные не найдены.</p>';
+            }
       }
     });
   });

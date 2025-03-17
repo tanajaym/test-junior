@@ -69,9 +69,9 @@
           <div class="custom-select">
             <select name="bundlers" class="bundlers" id="bundlers" aria-placeholder="Option">
               <option value="0" disabled selected>Option</option>
-              <option value="1">Vite</option>
-              <option value="2">Webpack</option>
-              <option value="3">Gulp</option>
+              <option value="Vite">Vite</option>
+              <option value="Webpack">Webpack</option>
+              <option value="Gulp">Gulp</option>
             </select>
           </div>
         </div>
@@ -147,31 +147,34 @@
           exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
       </section>
+      <!-- res -->
+      <section>
+        <div class="result">
+          <div class="container">
+            <h3>Результаты отправки:</h3>
+            <div class="result-container">
+                <div class="results"></div> 
+            </div>
+          </div>
+        </div>
+        </section>
+        <!-- res -->
 
       <!-- //////////////
         // SECTION-SUBMIT-BUTTON
       /////////////////// -->
 
       <section>
-        <button type="submit" class="button" onClick="handleSubmit()">Отправить</button>
+        <button type="submit" class="button" onClick="openPopup()">Отправить</button>
       </section>
     </div>
   </main>
-
-  <div class="popup">
-    <div class="container">
-      <h2>Результаты формы</h2>
-      <div class="result-container">
-        <div class="results"></div>
-      </div>
-    </div>
-  </div>
-
+  
   <!-- //////////////
     // FOOTER
     /////////////////// -->
-  <footer class="footer">
-    <div class="container">
+    <footer class="footer">
+      <div class="container">
       <div class="footer-text">
         <p>© Cоболева Ева, год рожденья-текущий год</p>
       </div>
