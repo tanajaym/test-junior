@@ -95,8 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.querySelector("form");
   const popup = document.querySelector(".popup");
   const body = document.body;
-  // const overlay = document.querySelector(".overlay");
-  // const closePopupButton = document.getElementById("closePopup");
   const resultsContainer = document.querySelector(".results");
 
   // Обновление года в footer
@@ -177,7 +175,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   submitButton.addEventListener("click", function (event) {
-    // Проверяем валидность всей формы
+    // форма валидность
     if (!form.checkValidity()) {
       event.preventDefault();
       alert("Пожалуйста, заполните все поля корректно.");
@@ -204,7 +202,7 @@ document.addEventListener("DOMContentLoaded", function () {
           checkbox2: checkboxes[1].checked,
         };
 
-        // Отображаем результаты в попапе
+        // результаты в попапе
         resultsContainer.innerHTML = `
           <div class="result-item"><strong>Диапазон:</strong> от ${formData.rangeFrom} до ${formData.rangeTo}</div>
           <div class="result-item"><strong>Выбранный bundler:</strong> ${formData.selectedOption}</div>
@@ -215,30 +213,14 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="result-item"<strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? "Отмечен" : "Не отмечен"}</div>
         `;
 
-        // popup.style.display = "flex"; // Показываем попап
-        // body.style.background = "rgba(0, 0, 0, 75%)";
-
-        body.style.position = "relative"; // Для корректного отображения псевдоэлемента
-        body.setAttribute("data-overlay", "true"); // Добавляем атрибут для управления псевдоэлементом
-        popup.style.display = "block"; // Показываем попап
-        // overlay.style.display = "block";
-        form.reset(); // Очищаем форму
+        body.style.position = "relative"; 
+        body.setAttribute("data-overlay", "true"); 
+        popup.style.display = "block";
+        form.reset(); 
       } else {
         event.preventDefault();
         alert("Пожалуйста, заполните все поля корректно");
       }
     }
   });
-
-  // Закрытие попапа
-  // closePopupButton.addEventListener("click", () => {
-  //   popup.style.display = "none";
-  // });
-
-  // Закрытие попапа при клике вне его
-  // window.addEventListener("click", (event) => {
-  //   if (event.target === popup) {
-  //     popup.style.display = "none";
-  //   }
-  // });
 });

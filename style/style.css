@@ -447,7 +447,6 @@ main section .checkbox-container .checkbox-input:checked::after {
   margin: 2rem auto;
   padding: 20px;
   background-color: #ffffff;
-  border: 2px dashed #025b58;
   box-shadow: 5px 8px #000000;
   z-index: 101;
 }
@@ -480,5 +479,5 @@ body::before {
 }
 
 body[data-overlay]::before {
-  display: block;
+  display: flex;
 }/*# sourceMappingURL=style.css.map */

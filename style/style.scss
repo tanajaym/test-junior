@@ -63,10 +63,11 @@ body {
   max-height: 100%;
   width: 100%;
 }
+
 //image
 .container {
   width: 100%;
-  max-width: $container; // Ограничиваем ширину контейнера
+  max-width: $container; 
   margin: 0 auto;
   @media(max-width:600px){
     display: block;
@@ -80,11 +81,9 @@ body {
 }
 
 .header {
-  // width: 100vw; // Растягиваем на всю ширину экрана
-  min-height: 220px; //
+  min-height: 220px; 
   min-width: 70%;
-  // min-width: 100%;
-  // grid-area: header;
+
   
   h1,
   p {
@@ -107,8 +106,8 @@ body {
 
     @media(max-width: 600px) {
       position: relative;
-      flex-direction: column; // Меняем направление flex на колонку
-      height: auto; // Высота автоматически подстраивается под содержимое
+      flex-direction: column; 
+      height: auto; 
     }
   }
 
@@ -124,7 +123,7 @@ body {
     width: 30%;
     height: 220px;
     @media(max-width: 600px) {
-      width: 100%; // Изображение занимает всю ширину// Высота автоматически подстраивается под содержимое
+      width: 100%;
     }
 
     img {
@@ -133,10 +132,6 @@ body {
       object-fit: cover;
     }
   }
-  
-  // @media(max-width: 600px){
-  //   background-color: $black
-  // }
   .container{
     padding: 0;
   }
@@ -176,7 +171,6 @@ main {
           max-width: 100%;
           gap: 20px;;
           flex-wrap: wrap;
-          // justify-content: space-between;
       }
 
       }
@@ -351,7 +345,6 @@ main {
         color: $black;
         padding: 8px 16px;
         border: 1px solid $black;
-        // border-color: $black;
         border-width: 0, 4px;
         cursor: pointer;
         user-select: none;
@@ -442,10 +435,6 @@ main {
     }
   }
 
-  // .section-h3-p{
-  //   border-bottom: solid $primary;
-  //   padding: 0 0 1rem 0;
-  // }
 
   // ////////
 
@@ -507,13 +496,11 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 50%;
-  // background-color: rgba(0, 0, 0, 75%);
   width: 100%;
   max-width: $container;
   margin: 2rem auto;
   padding: 20px;
   background-color: $white;
-  border: 2px dashed $primary;
   box-shadow: 5px 8px #000000;
   z-index: 101;
 
@@ -540,26 +527,16 @@ main {
 }
 body::before {
   content: "";
-  display: none; // По умолчанию скрыт
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75); // Затемнение
-  z-index: 100; // Убедитесь, что overlay ниже попапа
+  background-color: rgba(0, 0, 0, 0.75); 
+  z-index: 100;
 }
 
 body[data-overlay]::before {
-  display: block; // Показываем overlay
+  display: flex; 
 }
-// .overlay {
-//   display: none; // По умолчанию скрыт
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   height: 100%;
-//   background-color: rgba(0, 0, 0, 0.75); // Затемнение
-//   z-index: 100; // Убедитесь, что overlay ниже попапа
-// }
