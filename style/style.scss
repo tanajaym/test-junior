@@ -34,6 +34,9 @@ html {
 
 h1 {
   font-size: 48px;
+  @media (max-width: 280px){
+    font-size: 38px;
+  }
 }
 
 h2 {
@@ -286,6 +289,9 @@ main {
       input {
         cursor: pointer;
       }
+      @media (max-width: 330px) {
+        display: block;
+      }
     }
 
     .radio-container {
@@ -321,14 +327,19 @@ main {
           background-color: $primary;
           border-color: $primary;
         }
-
         @media (max-width: 350px) {
           .radio-custom {
             width: 10px;
             height: 10px;
           }
         }
+        
+        @media (max-width:320px) {
+          gap: 0px;
+          justify-content: space-between;
+        }
       }
+
     }
   }
   //////
@@ -447,6 +458,10 @@ main {
           background-color: $primary;
           opacity: 0;
           transition: opacity 0.1s ease;
+
+          @media(max-width: 500px){
+            position: relative;
+          }
         }
 
         &:checked::after {

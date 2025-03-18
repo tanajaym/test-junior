@@ -18,6 +18,11 @@ html {
 h1 {
   font-size: 48px;
 }
+@media (max-width: 280px) {
+  h1 {
+    font-size: 38px;
+  }
+}
 
 h2 {
   font-weight: 600;
@@ -257,6 +262,11 @@ main section .checkbox-container {
 main section .checkbox-container input {
   cursor: pointer;
 }
+@media (max-width: 330px) {
+  main section .checkbox-container {
+    display: block;
+  }
+}
 main section .radio-container .radio {
   cursor: pointer;
   display: flex;
@@ -290,6 +300,12 @@ main section .radio-container .radio input[type=radio]:checked + .radio-custom {
   main section .radio-container .radio .radio-custom {
     width: 10px;
     height: 10px;
+  }
+}
+@media (max-width: 320px) {
+  main section .radio-container .radio {
+    gap: 0px;
+    justify-content: space-between;
   }
 }
 main .section-radio-select {
@@ -401,6 +417,11 @@ main section .checkbox-container .checkbox-input::after {
   background-color: #025b58;
   opacity: 0;
   transition: opacity 0.1s ease;
+}
+@media (max-width: 500px) {
+  main section .checkbox-container .checkbox-input::after {
+    position: relative;
+  }
 }
 main section .checkbox-container .checkbox-input:checked::after {
   opacity: 1;
