@@ -204,13 +204,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // результаты в попапе
         resultsContainer.innerHTML = `
-          <div class="result-item"><strong>Диапазон:</strong> от ${formData.rangeFrom} до ${formData.rangeTo}</div>
-          <div class="result-item"><strong>Выбранный bundler:</strong> ${formData.selectedOption}</div>
-          <div class="result-item"><strong>Выбранный язык:</strong> ${formData.radioValue}</div>
-          <div class="result-item"><strong>ФИО:</strong> ${formData.fullName}</div>
-          <div class="result-item"><strong>Возраст:</strong> ${formData.age}</div>
-          <div class="result-item"><strong>Обязательный checkbox:</strong> ${formData.checkbox1 ? "Отмечен" : "Не отмечен"}</div>
-          <div class="result-item"<strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? "Отмечен" : "Не отмечен"}</div>
+        <div class="result-item"><p>Диапазон:</p> от ${formData.rangeFrom} до ${formData.rangeTo}</div>
+        <div class="result-item"><p>Select:</p> ${formData.selectedOption}</div>
+          <div class="result-item"><p>Radio:</p> ${formData.radioValue}</div>
+          <div class="result-item"><p>ФИО:</p> ${formData.fullName}</div>
+          <div class="result-item"><p>Возраст:</p> ${formData.age}</div>
+          <div class="result-item"><p>Обязательный checkbox:</p> ${formData.checkbox1 ? "Да" : "Нет"}</div>
+          <div class="result-item"<p>Необязательный checkbox:</p> ${formData.checkbox2 ? "Да" : "Нет"}</div>
         `;
 
         body.style.position = "relative"; 
