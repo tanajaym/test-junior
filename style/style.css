@@ -436,43 +436,32 @@ main section .checkbox-container .checkbox-input:checked::after {
   color: #000000;
 }
 
-.result {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  width: 100%;
+  max-width: 648px;
+  margin: 2rem auto;
   padding: 20px;
-  box-sizing: border-box;
   background-color: #ffffff;
+  border: 2px dashed #025b58;
+  box-shadow: 5px 8px #000000;
 }
-.result h2 {
-  max-width: 600px;
-  margin: 2rem 0;
+.popup h2 {
   color: #025b58;
   text-align: center;
+  margin-bottom: 1.5rem;
 }
-.result-container {
-  max-width: 600px;
-  width: 100%;
-  padding: 20px;
-  box-shadow: 5px 8px #000000;
-  background-color: #f9f9f9;
-  border-style: dashed;
-  border-color: #025b58;
-}
-.result .result .result-item {
+.popup .results .result-item {
   margin-bottom: 10px;
   font-size: 16px;
   line-height: 1.5;
 }
-.result .result .result-item strong {
+.popup .results .result-item strong {
   display: inline-block;
   width: 150px;
   font-weight: bold;
-}
-@media (max-width: 630px) {
-  .result-container {
-    border: 2px dashed #025b58;
-    padding: 15px;
-  }
 }/*# sourceMappingURL=style.css.map */

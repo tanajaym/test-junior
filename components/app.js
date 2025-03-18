@@ -93,9 +93,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const submitButton = document.querySelector(".button");
   const footerText = document.querySelector(".footer-text p");
   const form = document.querySelector("form");
-  const resultsContainer = document.createElement("div"); // Контейнер для результатов
-  resultsContainer.classList.add("results-container");
-  document.body.appendChild(resultsContainer); // Добавляем контейнер на страницу
+  const popup = document.querySelector(".popup");
+  const body = document.querySelector("body");
+  const overlay = document.querySelector(".overlay");
+  const closePopupButton = document.getElementById("closePopup");
+  const resultsContainer = document.querySelector(".results");
 
   // Обновление года в footer
   const currentYear = new Date().getFullYear();
@@ -202,20 +204,20 @@ document.addEventListener("DOMContentLoaded", function () {
           checkbox2: checkboxes[1].checked,
         };
 
-        // Отображаем результаты на странице
-        const resultElement = document.createElement("div");
-        resultElement.classList.add("result-item");
-        resultElement.innerHTML = `
-          <p><strong>Диапазон:</strong> от ${formData.rangeFrom} до ${formData.rangeTo}</p>
-          <p><strong>Выбранный bundler:</strong> ${formData.selectedOption}</p>
-          <p><strong>Выбранный язык:</strong> ${formData.radioValue}</p>
-          <p><strong>ФИО:</strong> ${formData.fullName}</p>
-          <p><strong>Возраст:</strong> ${formData.age}</p>
-          <p><strong>Обязательный checkbox:</strong> ${formData.checkbox1 ? "Отмечен" : "Не отмечен"}</p>
-          <p><strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? "Отмечен" : "Не отмечен"}</p>
+        // Отображаем результаты в попапе
+        resultsContainer.innerHTML = `
+          <div class="result-item"><strong>Диапазон:</strong> от ${formData.rangeFrom} до ${formData.rangeTo}</div>
+          <div class="result-item"><strong>Выбранный bundler:</strong> ${formData.selectedOption}</div>
+          <div class="result-item"><strong>Выбранный язык:</strong> ${formData.radioValue}</div>
+          <div class="result-item"><strong>ФИО:</strong> ${formData.fullName}</div>
+          <div class="result-item"><strong>Возраст:</strong> ${formData.age}</div>
+          <div class="result-item"><strong>Обязательный checkbox:</strong> ${formData.checkbox1 ? "Отмечен" : "Не отмечен"}</div>
+          <div class="result-item"<strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? "Отмечен" : "Не отмечен"}</div>
         `;
 
-        resultsContainer.appendChild(resultElement);
+        popup.style.display = "flex"; // Показываем попап
+        body.style.background = "rgba(0, 0, 0, 75%)";
+        overlay.style.display = "block";
         form.reset(); // Очищаем форму
       } else {
         event.preventDefault();
@@ -223,4 +225,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // Закрытие попапа
+  // closePopupButton.addEventListener("click", () => {
+  //   popup.style.display = "none";
+  // });
+
+  // Закрытие попапа при клике вне его
+  // window.addEventListener("click", (event) => {
+  //   if (event.target === popup) {
+  //     popup.style.display = "none";
+  //   }
+  // });
 });
