@@ -1,4 +1,3 @@
-"use strict";
 
 function initializeCustomSelect() {
   const customSelects = document.getElementsByClassName("custom-select");

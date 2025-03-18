@@ -13,7 +13,7 @@ $input-width: 315px;
 $container: 648px;
 $header-height: 220px;
 $container-padding: 15px;
-$margin-section: 3rem;
+$margin-section: 2rem;
 
 $transition-duration: 0.2s;
 
@@ -40,7 +40,7 @@ h2 {
   font-weight: 600;
   font-size: 28px;
   line-height: 30px;
-  margin: 0 0 3rem 0;
+  margin: $margin-section 0 1.5rem 0;
 }
 
 a,
@@ -143,14 +143,34 @@ main {
   width: 100%;
   margin: 0 auto;
 
+  .section-h3-p{
+    position: relative;
+  }
+
+  .section-h3-p::after{
+    width: 100%;
+    content: "";
+    position: absolute;
+    margin-top: 1rem;
+    bottom: -1.5rem;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
+    z-index: -1;
+  }
+
   section {
     gap: 20px;
     margin: 0 0 $margin-section 0;
 
     .range-container {
+      span{
+      }
       .range {
         display: flex;
         gap: 20px;
+        margin-top: 10px;
 
         &-from,
         &-to {
@@ -248,7 +268,7 @@ main {
         .form-age {
           cursor: pointer;
           input{
-            width: calc($input-width - 213px);
+            width: $input-width;
             height: $input-height;
 
             @media(max-width:600px){
@@ -340,6 +360,7 @@ main {
 
       .select-items,
       .select-selected {
+        margin-top: 10px;
         width: $input-width;
         background-color: $white;
         color: $black;
@@ -435,7 +456,6 @@ main {
     }
   }
 
-
   // ////////
 
   @media (max-width: 850px) {
@@ -460,9 +480,14 @@ main {
         display: block;
       }
     }
+    
   }
 
 }
+
+
+
+
 
 
 .button {
@@ -495,8 +520,6 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  // width: 50%;
-  // width: 100%;
   width: 410px;
   height: 215px;
   max-width: $container;
@@ -505,12 +528,11 @@ main {
   background-color: $white;
   box-shadow: 5px 8px #000000;
   z-index: 101;
-  // padding: 1rem;
+
 
   .container{
     width: 410px;
     height: 215px;
-    // padding: 1rem;;
 
     .result-container{
       width: 100%;
