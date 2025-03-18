@@ -94,9 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const footerText = document.querySelector(".footer-text p");
   const form = document.querySelector("form");
   const popup = document.querySelector(".popup");
-  const body = document.querySelector("body");
-  const overlay = document.querySelector(".overlay");
-  const closePopupButton = document.getElementById("closePopup");
+  const body = document.body;
+  // const overlay = document.querySelector(".overlay");
+  // const closePopupButton = document.getElementById("closePopup");
   const resultsContainer = document.querySelector(".results");
 
   // Обновление года в footer
@@ -215,9 +215,13 @@ document.addEventListener("DOMContentLoaded", function () {
           <div class="result-item"<strong>Необязательный checkbox:</strong> ${formData.checkbox2 ? "Отмечен" : "Не отмечен"}</div>
         `;
 
-        popup.style.display = "flex"; // Показываем попап
-        body.style.background = "rgba(0, 0, 0, 75%)";
-        overlay.style.display = "block";
+        // popup.style.display = "flex"; // Показываем попап
+        // body.style.background = "rgba(0, 0, 0, 75%)";
+
+        body.style.position = "relative"; // Для корректного отображения псевдоэлемента
+        body.setAttribute("data-overlay", "true"); // Добавляем атрибут для управления псевдоэлементом
+        popup.style.display = "block"; // Показываем попап
+        // overlay.style.display = "block";
         form.reset(); // Очищаем форму
       } else {
         event.preventDefault();
