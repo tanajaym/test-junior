@@ -123,10 +123,13 @@ document.addEventListener("DOMContentLoaded", function () {
     rangeMin.value = from;
     rangeMax.value = to;
 
+
     updateProgress();
 
     return { from, to };
   }
+
+
 
   function updateProgress() {
     const min = parseInt(rangeMin.value);
