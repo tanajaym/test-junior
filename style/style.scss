@@ -206,9 +206,12 @@ main {
         position: relative;
 
         .progress {
-          height: 1.5px;
-          background: $primary;
           position: absolute;
+          top: 0;
+          left: 0;
+          height: 100%;
+          background-color: $primary;
+          z-index: 1;
         }
 
         .sliders {

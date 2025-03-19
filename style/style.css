@@ -189,9 +189,12 @@ main section .range-container .slider {
   position: relative;
 }
 main section .range-container .slider .progress {
-  height: 1.5px;
-  background: #025b58;
   position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #025b58;
+  z-index: 1;
 }
 main section .range-container .slider .sliders {
   position: relative;

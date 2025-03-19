@@ -81,8 +81,10 @@ function initializeCustomSelect() {
 document.addEventListener("DOMContentLoaded", function () {
   initializeCustomSelect();
 
+  //inputs  
   const fromInput = document.querySelector('input[placeholder="От 0"]');
   const toInput = document.querySelector('input[placeholder="До 100"]');
+  //sliders
   const rangeMin = document.querySelector(".range-min");
   const rangeMax = document.querySelector(".range-max");
   const bundlersSelect = document.querySelector('select[name="bundlers"]');
@@ -96,11 +98,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const body = document.body;
   const resultsContainer = document.querySelector(".results");
 
+  const progress = document.querySelector(".progress");
+
   // Обновление года в footer
   const currentYear = new Date().getFullYear();
   footerText.textContent = `© Ева Соболева, ${currentYear}`;
-
+  
+  //RANGE
   // Валидация range
+
   function validateRange() {
     let from = parseInt(fromInput.value) || 0;
     let to = parseInt(toInput.value) || 150;
@@ -117,10 +123,21 @@ document.addEventListener("DOMContentLoaded", function () {
     rangeMin.value = from;
     rangeMax.value = to;
 
+    updateProgress();
+
     return { from, to };
   }
 
-  // Обновление полей ввода при перемещении ползунков
+  function updateProgress() {
+    const min = parseInt(rangeMin.value);
+    const max = parseInt(rangeMax.value);
+    const minPercent = (min / 150) * 100;
+    const maxPercent = (max / 150) * 100;
+
+    progress.style.left = `${minPercent}%`;
+    progress.style.width = `${maxPercent - minPercent}%`;
+  }
+
   rangeMin.addEventListener("input", () => {
     fromInput.value = rangeMin.value;
     validateRange();
@@ -133,6 +150,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
   fromInput.addEventListener("input", validateRange);
   toInput.addEventListener("input", validateRange);
+
+
+
+  const maximum = Math.min(parseInt(fromInput.value), parseInt(toInput.value) - 1);
+  const percent = ((maximum - inputStart.min) / (inputStart.max - inputStart.min)) * 100;
+
+
+  pseudoEl.style.left = percent + '%';
+  range.style.left = percent + '%';
+
+
+  inputStart.addEventListener('input', () => {
+    setStartValueCustomSlider(inputStart, inputEnd, thumbLeft, rangeBetween);
+    setLabelValue(labelMin, inputStart);
+  });
+  
+  inputEnd.addEventListener('input', () => {
+     setEndValueCustomSlider(inputEnd, inputStart, thumbRight, rangeBetween);
+     setLabelValue(labelMax, inputEnd);
+  });
+
+  //RANGE
 
   // Валидация select
   bundlersSelect.addEventListener("change", function () {
